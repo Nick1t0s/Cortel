@@ -9,4 +9,8 @@
 -- UPDATE users SET chats = chats || 8812 WHERE username = 'heisenberg';
 
 -- UPDATE chats SET users_id = users_id || '{512, 4713}'
-INSERT INTO chat8812 (chat_id, sender_id, content, sent_at),
+-- INSERT INTO chat8812 (chat_id, sender_id, content)
+-- VALUES (8812, 512, 'Да');
+-- ALTER TABLE chat8812 ADD COLUMN readed int8[] DEFAULT '{}'::int8[];
+-- ALTER TABLE chats ADD  COLUMN users_send boolean DEFAULT true;
+ALTER TABLE chats RENAME COLUMN username TO name;
