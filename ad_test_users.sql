@@ -13,4 +13,7 @@
 -- VALUES (8812, 512, 'Да');
 -- ALTER TABLE chat8812 ADD COLUMN readed int8[] DEFAULT '{}'::int8[];
 -- ALTER TABLE chats ADD  COLUMN users_send boolean DEFAULT true;
-ALTER TABLE chats RENAME COLUMN username TO name;
+-- ALTER TABLE chats RENAME COLUMN username TO name;
+INSERT INTO chats (name, users_id, admins_id, open, users_invite, avatar_path, created_by, users_send)
+VALUES ('sdf', '{512}'::int8[], '{512}'::int8[], True, True,
+        'sdf', 512, True);

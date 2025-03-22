@@ -91,12 +91,15 @@ class database:
             pass
         else:
             cursor = conn.cursor()
-            cursor.execute(f"INSERT INTO chats (name, users_id, admins_id, open, users_invite, avatar_path, created_by, users_send)"\
-                           f"VALUES ({name}, {{'{user_id}'}}, {{'{user_id}'}}, {is_open}, {users_invite},"\
+            print(f"INSERT INTO chats (name, users_id, admins_id, open, users_invite, avatar_path, created_by, users_send)"\
+                           f"VALUES ({name}, '{{{user_id}}}'::int8[], '{{{user_id}}}'::int8[], {is_open}, {users_invite},"\
                            f"'chatAvatars{user_id}.jpg', {user_send}, {user_send});")
-            cursor.execute(f"VALUES (")
-            cursor.execute(f"")
+            cursor.execute(f"INSERT INTO chats (name, users_id, admins_id, open, users_invite, avatar_path, created_by, users_send)"\
+                           f"VALUES ('{name}', '{{{user_id}}}'::int8[], '{{{user_id}}}'::int8[], {is_open}, {users_invite},"\
+                           f"'5', {user_id}, {user_send});")
+            #ДОДЕЛАТЬ ЗАПРОС!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 
 db = database("postgres", "postgres", "1", "localhost")
-print(db.sendMessage(8812, 512, "Еще раз привет"))
+print(db.createChat(512,"sdf", 'true', 'true', 'true'))
